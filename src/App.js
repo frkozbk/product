@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import ImageContainer from "./components/ImageContainer/ImageContainer.component";
+import Product from "./components/Product/Product.component";
 
-function App() {
+import "./App.scss";
+import { changeImages, selectImage } from "./redux/image/image.actions";
+import { changeNumber } from "./redux/options/options.action";
+
+function App({ images, min, changeImages, selectImage, changeNumber }) {
+  useEffect(() => {
+    changeImages(images);
+    selectImage(images[0]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ImageContainer />
+      <Product />
     </div>
   );
 }
-
-export default App;
+const mapStateToProps = state => ({
+  images: state.product.productVariants.reduce((images, value) => {
+    return [...images, ...value.images];
+  }, []),
+  min: state.product.baremList[0].minimumQuantity
+});
+const mapDispatchToProps = dispatch => ({
+  changeImages: images => dispatch(changeImages(images)),
+  selectImage: image => dispatch(selectImage(image)),
+  changeNumber: number => dispatch(changeNumber(number))
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

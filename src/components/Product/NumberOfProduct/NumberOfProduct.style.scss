@@ -1,0 +1,42 @@
+.numberOfProduct{
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px 15px;
+  label{
+    text-align: center;
+    min-width: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 5px;
+    &::after{
+      content:":";
+      margin-left: auto;
+      justify-self: flex-end;
+    }
+  }
+  input{
+    display: block;
+    text-align: center;
+    width: 60px;
+    padding: 10px 5px;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    margin-right: 10px;
+    &::hover{
+      -webkit-appearance: none;
+    }
+    &::-webkit-inner-spin-button, 
+    &::-webkit-outer-spin-button { 
+      appearance: none; 
+      margin: 0; 
+}
+  }
+  .numberOfProduct-stock{
+    margin-left: auto;
+    font-size: 14px;
+    color: #6ebb6b;
+  }
+}
