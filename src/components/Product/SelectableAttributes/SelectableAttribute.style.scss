@@ -24,5 +24,12 @@
     margin-right: 10px;
     margin-bottom: 10px;
     text-align: center;
+    cursor: pointer;
+    &.disabled.selected{
+      border-color: red;
+    }
+    &.selected{
+      border-color:black;
+    }
   }
 }

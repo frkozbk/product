@@ -7,18 +7,19 @@ const BaremPrice = ({ baremList }) => {
     return baremList.map((value, index) => {
       if (index === baremList.length - 1) {
         return (
-          <li>
+          <li key={value.price}>
             <BaremPriceOptionButton
               minimumQuantity={value.minimumQuantity}
               maximumQuantity={value.maximumQuantity}
               price={value.price}
               last
+              key={value.price}
             />
           </li>
         );
       }
       return (
-        <li>
+        <li key={value.price}>
           <BaremPriceOptionButton {...value} />
         </li>
       );

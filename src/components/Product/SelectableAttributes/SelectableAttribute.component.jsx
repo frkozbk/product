@@ -1,9 +1,10 @@
 import React from "react";
 import "./SelectableAttribute.style.scss";
+import Button from "./Button.component";
 const SelectableAttribute = ({ name, options }) => {
   function renderOptions() {
     return options.map(option => (
-      <button className="selectableAttribute-option">{option}</button>
+      <Button option={option} categoryName={name} key={option} />
     ));
   }
   return (

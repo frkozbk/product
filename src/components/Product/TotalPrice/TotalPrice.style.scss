@@ -48,6 +48,12 @@
     border-radius: 5px;
     font-weight: 600;
     margin-right: 10px;
+    cursor: pointer;
+    &.disabled{
+      background-color: #ffecb3;
+      cursor: not-allowed;
+      pointer-events: all !important;
+    }
   }
   span{
     color:#6792d2;
