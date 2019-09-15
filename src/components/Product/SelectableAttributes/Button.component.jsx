@@ -13,7 +13,6 @@ const Button = ({
   const [disabled, setDisabled] = useState(false);
   function handleClick() {
     selectOption(categoryName, option);
-    // filterVariants(categoryName, option);
   }
   function checkSelectedButton() {
     if (selectedOptions) {

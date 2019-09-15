@@ -14,8 +14,7 @@ const BaremPriceOptionButton = props => {
     if (number >= minimumQuantity && number <= maximumQuantity) {
       changeBaremPrice(price);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [number]);
+  }, [changeBaremPrice, maximumQuantity, minimumQuantity, number, price]);
   return (
     <button
       className="baremPrice-option"

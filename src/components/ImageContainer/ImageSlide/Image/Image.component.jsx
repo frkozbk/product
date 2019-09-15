@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import "./Image.style.scss";
 import { selectImage } from "../../../../redux/image/image.actions";
+import "./Image.style.scss";
 const Image = ({ url, selectImage, selectedImage }) => {
   function handleClick() {
     selectImage(url);

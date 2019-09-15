@@ -5,22 +5,12 @@ import BaremPriceOptionButton from "./BaremPriceOptionButton/BaremPriceOptionBut
 const BaremPrice = ({ baremList }) => {
   function renderBaremList() {
     return baremList.map((value, index) => {
-      if (index === baremList.length - 1) {
-        return (
-          <li key={value.price}>
-            <BaremPriceOptionButton
-              minimumQuantity={value.minimumQuantity}
-              maximumQuantity={value.maximumQuantity}
-              price={value.price}
-              last
-              key={value.price}
-            />
-          </li>
-        );
-      }
       return (
         <li key={value.price}>
-          <BaremPriceOptionButton {...value} />
+          <BaremPriceOptionButton
+            {...value}
+            last={index === baremList.length - 1}
+          />
         </li>
       );
     });

@@ -1,7 +1,7 @@
 import React from "react";
-import "./ImageContainer.style.scss";
 import ImageSlide from "./ImageSlide/ImageSlide.component";
 import SelectedImage from "./SelectedImage/SelectedImage.component";
+import "./ImageContainer.style.scss";
 const ImageContainer = () => {
   return (
     <div className="imageContainer">
