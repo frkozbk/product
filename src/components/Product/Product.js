@@ -1,12 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import SelectableAttribute from "./SelectableAttributes/SelectableAttribute.component";
-import BaremPrice from "./BaremPrice/BaremPrice.component";
-import NumberOfProduct from "./NumberOfProduct/NumberOfProduct.component";
-import TotalPrice from "./TotalPrice/TotalPrice.component";
+import SelectableAttribute from "./SelectableAttributes/SelectableAttribute";
+import BaremPrice from "./BaremPrice/BaremPrice";
+import NumberOfProduct from "./NumberOfProduct/NumberOfProduct";
+import TotalPrice from "./TotalPrice/TotalPrice";
 
-import "./Product.style.scss";
+import "./Product.scss";
 
 const Product = ({ selectables, productTitle, baremList }) => {
   const minimumQuantity = baremList[0].minimumQuantity;
@@ -40,6 +41,11 @@ const Product = ({ selectables, productTitle, baremList }) => {
       <TotalPrice />
     </div>
   );
+};
+Product.propTypes = {
+  selectables: PropTypes.array.isRequired,
+  productTitle: PropTypes.string.isRequired,
+  baremList: PropTypes.array.isRequired
 };
 const mapStateToProps = state => ({
   productTitle: state.product.productTitle,

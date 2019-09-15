@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import "./SelectedImage.style.scss";
+import "./SelectedImage.scss";
 const SelectedImage = ({ selectedImage }) => {
   return (
     <div className="selectedImage">
@@ -11,6 +12,9 @@ const SelectedImage = ({ selectedImage }) => {
       />
     </div>
   );
+};
+SelectedImage.propTypes = {
+  selectedImage: PropTypes.string.isRequired
 };
 const mapStateToProps = ({ images }) => ({
   selectedImage: images.selectedImage

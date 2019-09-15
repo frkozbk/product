@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { selectImage } from "../../../../redux/image/image.actions";
-import "./Image.style.scss";
+import "./Image.scss";
 const Image = ({ url, selectImage, selectedImage }) => {
   function handleClick() {
     selectImage(url);
@@ -17,6 +18,12 @@ const Image = ({ url, selectImage, selectedImage }) => {
     />
   );
 };
+Image.propTypes = {
+  url: PropTypes.string.isRequired,
+  selectImage: PropTypes.func.isRequired,
+  selectedImage: PropTypes.string.isRequired
+};
+
 const mapStateToProps = ({ images }) => ({
   selectedImage: images.selectedImage
 });

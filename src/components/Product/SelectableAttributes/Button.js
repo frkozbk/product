@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { selectOption } from "../../../redux/options/options.action";
-import { filterVariants } from "../../../redux/producVariants/productVariants.actions";
+import { filterVariants } from "../../../redux/productVariants/productVariants.actions";
 const Button = ({
   option,
   categoryName,
@@ -49,6 +50,15 @@ const Button = ({
     </button>
   );
 };
+Button.propTypes = {
+  option: PropTypes.string.isRequired,
+  categoryName: PropTypes.string.isRequired,
+  selectOption: PropTypes.func.isRequired,
+  selectedOptions: PropTypes.object,
+  selectable: PropTypes.bool,
+  productOptions: PropTypes.object
+};
+
 const mapStateToProps = state => ({
   selectedOptions: state.options.productOptions,
   filteredVariants: state.variants.filteredVariants,

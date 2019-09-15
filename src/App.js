@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import ImageContainer from "./components/ImageContainer/ImageContainer.component";
-import Product from "./components/Product/Product.component";
+import ImageContainer from "./components/ImageContainer/ImageContainer";
+import Product from "./components/Product/Product";
 
 import { changeImages, selectImage } from "./redux/image/image.actions";
 import { getOptions, selectProduct } from "./redux/options/options.action";
@@ -9,7 +10,7 @@ import {
   getVariants,
   filterVariants,
   changeSelectable
-} from "./redux/producVariants/productVariants.actions";
+} from "./redux/productVariants/productVariants.actions";
 import "./App.scss";
 
 function App({
@@ -24,8 +25,7 @@ function App({
   productOptions,
   filterVariants,
   changeSelectable,
-  selectProduct,
-  productId
+  selectProduct
 }) {
   // mounted
   useEffect(() => {
@@ -81,6 +81,20 @@ function App({
     </div>
   );
 }
+App.propTypes = {
+  images: PropTypes.array.isRequired,
+  changeImages: PropTypes.func.isRequired,
+  selectImage: PropTypes.func.isRequired,
+  getOptions: PropTypes.func.isRequired,
+  options: PropTypes.object.isRequired,
+  productVariants: PropTypes.array.isRequired,
+  getVariants: PropTypes.func.isRequired,
+  reducedProductVariants: PropTypes.array.isRequired,
+  productOptions: PropTypes.object,
+  filterVariants: PropTypes.func.isRequired,
+  changeSelectable: PropTypes.func.isRequired,
+  selectProduct: PropTypes.func.isRequired
+};
 const mapStateToProps = state => ({
   images: state.product.productVariants.reduce((images, value) => {
     return [...images, ...value.images];

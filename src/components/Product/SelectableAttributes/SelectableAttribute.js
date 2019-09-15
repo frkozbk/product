@@ -1,6 +1,7 @@
 import React from "react";
-import "./SelectableAttribute.style.scss";
-import Button from "./Button.component";
+import PropTypes from "prop-types";
+import "./SelectableAttribute.scss";
+import Button from "./Button";
 const SelectableAttribute = ({ name, options }) => {
   function renderOptions() {
     return options.map(option => (
@@ -14,5 +15,8 @@ const SelectableAttribute = ({ name, options }) => {
     </div>
   );
 };
-
+SelectableAttribute.propTypes = {
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired
+};
 export default SelectableAttribute;

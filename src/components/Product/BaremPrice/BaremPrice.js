@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import "./BaremPrice.style.scss";
-import BaremPriceOptionButton from "./BaremPriceOptionButton/BaremPriceOptionButton.component";
+import "./BaremPrice.scss";
+import BaremPriceOptionButton from "./BaremPriceOptionButton/BaremPriceOptionButton";
 const BaremPrice = ({ baremList }) => {
   function renderBaremList() {
     return baremList.map((value, index) => {
@@ -27,6 +28,9 @@ const BaremPrice = ({ baremList }) => {
       </div>
     </div>
   );
+};
+BaremPrice.propTypes = {
+  baremList: PropTypes.array.isRequired
 };
 const mapStateToProps = state => ({
   baremList: state.product.baremList

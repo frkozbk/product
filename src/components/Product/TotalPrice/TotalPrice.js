@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import "./TotalPrice.style.scss";
+import "./TotalPrice.scss";
 const TotalPrice = ({
   number,
   baremPrice,
@@ -62,6 +63,13 @@ const TotalPrice = ({
       </div>
     </>
   );
+};
+TotalPrice.propTypes = {
+  number: PropTypes.number,
+  baremPrice: PropTypes.number,
+  productOptions: PropTypes.object,
+  selectable: PropTypes.bool.isRequired,
+  selectedProductId: PropTypes.string
 };
 const mapStateToProps = state => ({
   number: state.options.number,

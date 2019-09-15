@@ -116,8 +116,6 @@ const INITIAL_STATE = {
 };
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "a":
-      return state;
     default:
       return state;
   }

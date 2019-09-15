@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { changeNumber } from "../../../redux/options/options.action";
-import "./NumberOfProduct.style.scss";
+import "./NumberOfProduct.scss";
 const NumberOfProduct = ({ changeNumber, baremList }) => {
   const min = baremList[0].minimumQuantity;
   const max = baremList[baremList.length - 1].maximumQuantity;
@@ -33,6 +34,10 @@ const NumberOfProduct = ({ changeNumber, baremList }) => {
       <p className="numberOfProduct-stock">Stok Adeti:{max}</p>
     </div>
   );
+};
+NumberOfProduct.propTypes = {
+  baremList: PropTypes.array.isRequired,
+  changeNumber: PropTypes.func.isRequired
 };
 const mapStateToProps = state => ({
   baremList: state.product.baremList

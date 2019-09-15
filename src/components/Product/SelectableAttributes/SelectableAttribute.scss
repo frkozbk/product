@@ -27,6 +27,7 @@
     cursor: pointer;
     &.disabled.selected{
       border-color: red;
+      cursor: not-allowed;
     }
     &.selected{
       border-color:black;
